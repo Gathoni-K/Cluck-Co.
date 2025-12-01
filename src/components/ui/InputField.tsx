@@ -1,18 +1,50 @@
+import ReusableButton from "../ui/ReusableButton";
+import { IoMdAdd } from "react-icons/io";
+import { FiMinus } from "react-icons/fi";
+
 interface InputFieldProps {
     value: number;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onIncrement: () => void;
+    onDecrement: () => void;
 }
 
-const InputField:React.FC<InputFieldProps> = ({value, onChange}) => {
+const InputField: React.FC<InputFieldProps> = ({
+    value,
+    onChange,
+    onIncrement,
+    onDecrement
+}) => {
     return (
-        <div className="container mx-auto px-4md:px-6 lg:px-8 flex justify-end">
-            <input placeholder="Enter product here:" type="number"
-    value={value} onChange={onChange}            className="bg-white px-4 py-3 border border-gray-300 rounded-lg placeholder:text-gray-400
-            focus:outline-none focus:ring-2 focus:ring-orange-600
-            shadow-md mb-2"
-            />
-        </div>
-    )
-    }
+        <div className="flex items-center gap-2">
+        {/* Minus Button */}
+        <ReusableButton
+            type="button"
+            styling="primary"
+            onClick={onDecrement}
+        >
+            <FiMinus />
+        </ReusableButton>
 
-export default InputField
+        {/* Quantity Input */}
+        <input
+            type="number"
+            value={value}
+            onChange={onChange}
+            min="1"
+            className="w-16 text-center border border-gray-300 rounded px-2 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        {/* Plus Button */}
+        <ReusableButton
+            type="button"
+            styling="primary"
+            onClick={onIncrement}
+        >
+            <IoMdAdd />
+        </ReusableButton>
+        </div>
+    );
+};
+
+export default InputField;
