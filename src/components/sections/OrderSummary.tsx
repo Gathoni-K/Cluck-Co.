@@ -21,7 +21,7 @@ const OrderSummary = () => {
         
         // WhatsApp integration
         const supplierPhone = "254794371444"; 
-        const message = ` NEW ORDER\n\n Name: ${data.name}\n Phone: ${data.phoneNumber}\n\n⏰ ${new Date().toLocaleString()}`;
+        const message = ` NEW ORDER\n\n Name: ${data.name}\n Phone: ${data.phoneNumber}\n\n ${new Date().toLocaleString()}`;
         const whatsappURL = `https://wa.me/${supplierPhone}?text=${encodeURIComponent(message)}`;
         
         // Open WhatsApp
