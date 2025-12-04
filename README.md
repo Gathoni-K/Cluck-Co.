@@ -21,7 +21,7 @@ git clone https://github.com/Gathoni-K/Cluck-Co.git
 
     Navigate into the project folder:
 
-cd your-repo-name
+cd Cluck-Co
 
     Install dependencies:
 
